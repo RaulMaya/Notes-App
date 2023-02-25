@@ -1,14 +1,24 @@
 {
   "name": "note-taker",
   "version": "1.0.0",
-  "description": "",
+  "description": "This application will use an Express.js back end and will save and retrieve note data from a JSON file.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaulMaya/Notes-App.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/RaulMaya/Notes-App/issues"
+  },
+  "homepage": "https://github.com/RaulMaya/Notes-App#readme"
 }
