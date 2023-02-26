@@ -12,6 +12,10 @@ const PORT = 3001;
 // This are fixed files, static files.
 app.use(express.static("public"));
 
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true })); // Telling your information is encoded
+app.use(express.json());
+
 app.get("/", (req, res) =>
   res.sendFile(path.join(__dirname, "public/index.html"))
 );
@@ -20,18 +24,31 @@ app.get("/notes", (req, res) =>
   res.sendFile(path.join(__dirname, "public/notes.html"))
 );
 
-app.get("/api", (req, res) => {
-  res.json(dbTest);
+// GET request
+app.get("/api/notes", (req, res) => {
+  return res.json(dbTest);
+});
+
+// POST request
+app.post("/api/notes", (req, res) => {
+  // Let the client know that their POST request was received
+  console.log(req.body)
+
+  // Show the user agent information in the terminal
+  console.info(req.rawHeaders);
+
+  // Log our request to the terminal
+  console.info(`${req.method} request received`);
 });
 
 // GET route that returns any specific term
-app.get("/api/:term", (req, res) => {
+app.get("/api/:title", (req, res) => {
   // Coerce the specific search term to lowercase
-  const requestedTerm = req.params.term.toLowerCase();
+  const requestedTitle = req.params.title.toLowerCase();
 
   // Iterate through the terms name to check if it matches `req.params.term`
   for (let i = 0; i < dbTest.length; i++) {
-    if (requestedTerm === dbTest[i].term.toLowerCase()) {
+    if (requestedTitle === dbTest[i].title.toLowerCase()) {
       return res.json(dbTest[i]);
     }
   }
@@ -40,11 +57,11 @@ app.get("/api/:term", (req, res) => {
   return res.json("No match found");
 });
 
-// Return a list of categories
-app.get("/terms", (req, res) => {
-  const terms = dbTest.map((term) => term.term);
+// Return a list of titles
+app.get("/titles", (req, res) => {
+  const titles = dbTest.map((t) => t.title);
 
-  const result = terms.filter((t, i) => terms.indexOf(t) === i);
+  const result = titles.filter((t, i) => titles.indexOf(t) === i);
 
   return res.json(result);
 });
