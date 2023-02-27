@@ -1,10 +1,5 @@
 [
   {
-    "title": "Test Title",
-    "text": "Test text",
-    "url": "https://en.wikipedia.org/wiki/text"
-  },
-  {
     "title": "SEO",
     "text": "Search engine optimization is the process of improving the quality and quantity of website traffic to a website or a web page from search engines. SEO targets unpaid traffic rather than direct traffic or paid traffic.",
     "url": "https://en.wikipedia.org/wiki/Search_engine_optimization"
@@ -18,5 +13,13 @@
     "title": "REST",
     "text": "Stands for Representational State Transfer. This title is usually used in the context of describing an API where requests are made to a URI and a response is given in the form of HTML, XML, JSON, or some other format",
     "url": "https://en.wikipedia.org/wiki/Representational_state_transfer"
+  },
+  {
+    "title": "Emocion",
+    "text": "Tropical"
+  },
+  {
+    "title": "Solid",
+    "text": "Solidisimo"
   }
 ]

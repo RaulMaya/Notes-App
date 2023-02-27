@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-
+const fs = require("fs");
 // Importing my JSON File
 const dbTest = require("./db/db.json");
 
@@ -31,14 +31,56 @@ app.get("/api/notes", (req, res) => {
 
 // POST request
 app.post("/api/notes", (req, res) => {
-  // Let the client know that their POST request was received
-  console.log(req.body)
+  // Log that a POST request was received
+  console.info(`${req.method} request received to add a review`);
 
-  // Show the user agent information in the terminal
-  console.info(req.rawHeaders);
+  // Destructuring assignment for the items in req.body
+  const { title, text } = req.body;
 
-  // Log our request to the terminal
-  console.info(`${req.method} request received`);
+  // If all the required properties are present
+  if (title && text) {
+    // Variable for the object we will save
+    const newReview = {
+      title,
+      text
+    };
+
+    // Write the string to a file
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+      if (err) throw err;
+
+      // 3. Parse the existing JSON data into an object
+      const existingData = JSON.parse(data);
+      console.log(typeof existingData, existingData);
+
+      // 4. Append new data to the existing JSON object
+      existingData.push(newReview);
+      console.log(typeof existingData, existingData);
+      // 5. Convert the updated JSON object back to a string
+      const updatedData = JSON.stringify(existingData, null, 2);
+
+      console.log(typeof updatedData, updatedData);
+      // 6. Write the updated JSON string back to the file
+      // Write the string to a file
+      fs.writeFile(`./db/db.json`, updatedData, (err) =>
+        err
+          ? console.error(err)
+          : console.log(
+              `Review for ${newReview.product} has been written to JSON file`
+            )
+      );
+    });
+
+    const response = {
+      status: "success",
+      body: newReview,
+    };
+
+    console.log(response);
+    res.status(201).json(response);
+  } else {
+    res.status(500).json("Error in posting review");
+  }
 });
 
 // GET route that returns any specific term
