@@ -25,8 +25,9 @@ const readAndAppend = (content, file) => {
       console.error(err);
     } else {
       if (data.length === 0) {
-        console.log(content)
-        writeToFile(file, `${content}`);
+        const contentList = []
+        contentList.push(content)
+        writeToFile(file, contentList);
       } else {
         const parsedData = JSON.parse(data);
         parsedData.push(content);

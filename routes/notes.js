@@ -11,7 +11,7 @@ const uuid = require("../helpers/uuid");
 router.get("/", (req, res) => {
   readFromFile("./db/db.json").then((data) => {
     if (data.length === 0) {
-      console.log("Happy Feet", data.length, data);
+      return
     } else {
       res.json(JSON.parse(data));
     }
@@ -53,7 +53,13 @@ router.delete("/:id", (req, res) => {
         const noteObj = data.filter((note) => currentNote.id != note.id);
 
         writeToFile("./db/db.json", noteObj);
-        return;
+        readFromFile("./db/db.json").then((d) => {
+          if (d.length === 0) {
+            res.json(d);
+          } else {
+            res.json(JSON.parse(d));
+          }
+        });
       }
     }
     console.log("Fueras", req.params);
