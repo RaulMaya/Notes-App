@@ -8,6 +8,7 @@ let modalSection;
 let deleteBtn;
 let keepBtn;
 let cross;
+let saveModal;
 
 if (window.location.pathname === "/notes") {
   noteTitle = document.querySelector(".note-title");
@@ -20,8 +21,9 @@ if (window.location.pathname === "/notes") {
   deleteBtn = document.getElementById("btn-delete");
   keepBtn = document.getElementById("btn-keep");
   cross = document.getElementById("cross");
+  saveModal = document.getElementById("smallModal");
 }
-
+ 
 // Show an element
 const show = (elem) => {
   elem.style.display = "inline";
@@ -76,7 +78,13 @@ const renderActiveNote = () => {
   }
 };
 
+const hideSaveModal = () => {
+  saveModal.classList.toggle("visible")
+}
+
 const handleNoteSave = () => {
+  saveModal.classList.toggle("visible")
+  setTimeout(hideSaveModal, 1500);
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,

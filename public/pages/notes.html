@@ -23,6 +23,18 @@
     <div id="backdrop"></div>
     <!-- Modal -->
     <div
+      class="modal bd-example-modal-sm"
+      id="smallModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="mySmallModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content text-light p-3 text-center bg-success">Saved Successfully ✅</div>
+      </div>
+    </div>
+    <div
       class="modal"
       id="exampleModalCenter"
       tabindex="100"
@@ -55,7 +67,9 @@
             >
               Delete
             </button>
-            <button id="btn-keep" type="button" class="btn btn-primary">Keep</button>
+            <button id="btn-keep" type="button" class="btn btn-primary">
+              Keep
+            </button>
           </div>
         </div>
       </div>
@@ -64,7 +78,7 @@
       <a class="navbar-brand" href="/">Note Taker 🗒️</a>
       <div class="icons">
         <i class="fas fa-save text-light save-note"></i>
-        <i class="fas fa-plus text-light new-note"></i>
+        <i class="fas fa-sticky-note text-light new-note"></i>
       </div>
     </nav>
     <div class="container-fluid">
