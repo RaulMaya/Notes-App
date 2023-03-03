@@ -24,9 +24,16 @@ const readAndAppend = (content, file) => {
     if (err) {
       console.error(err);
     } else {
-      const parsedData = JSON.parse(data);
-      parsedData.push(content);
-      writeToFile(file, parsedData);
+      if (data.length === 0) {
+        console.log(content)
+        writeToFile(file, `${content}`);
+      } else {
+        const parsedData = JSON.parse(data);
+        parsedData.push(content);
+        console.log(parsedData)
+        writeToFile(file, parsedData);
+      }
+
     }
   });
 };

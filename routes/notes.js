@@ -1,11 +1,21 @@
 const express = require("express");
 const router = express.Router();
-const { readFromFile, readAndAppend, writeToFile} = require("../helpers/fsUtils");
+const {
+  readFromFile,
+  readAndAppend,
+  writeToFile,
+} = require("../helpers/fsUtils");
 const uuid = require("../helpers/uuid");
 
 // GET request
 router.get("/", (req, res) => {
-  readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)));
+  readFromFile("./db/db.json").then((data) => {
+    if (data.length === 0) {
+      console.log("Happy Feet", data.length, data);
+    } else {
+      res.json(JSON.parse(data));
+    }
+  });
 });
 
 // POST request
@@ -35,15 +45,14 @@ router.post("/", (req, res) => {
 router.delete("/:id", (req, res) => {
   console.info(`${req.method} request received.`);
   readFromFile("./db/db.json").then((data) => {
-    data = JSON.parse(data)
+    data = JSON.parse(data);
     for (let i = 0; i < data.length; i++) {
       const currentNote = data[i];
       console.log(currentNote);
       if (currentNote.id === req.params.id) {
-        const noteObj = data.filter(note => currentNote.id != note.id)
+        const noteObj = data.filter((note) => currentNote.id != note.id);
 
-        writeToFile('./db/db.json', noteObj);
-        readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
+        writeToFile("./db/db.json", noteObj);
         return;
       }
     }
