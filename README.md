@@ -1,7 +1,3 @@
-# Notes-App
-
-This application will use an Express.js back end and will save and retrieve note data from a JSON file.
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -14,88 +10,65 @@ This application will use an Express.js back end and will save and retrieve note
 
 ---
 
-[![Heroku App Status](http://heroku-shields.herokuapp.com/express-notiz-block)](https://express-notiz-block.herokuapp.com)
-
 <br/>
 <p align="center">
     <a href="LICENSE" target="_blank">
-        <img src="https://img.shields.io/github/license/sulu/sulu.svg" alt="GitHub license">
+        <img src="https://img.shields.io/badge/License-MIT-lime.svg" alt="GitHub License">
     </a>
-    <a href="https://github.com/sulu/sulu/releases" target="_blank">
-        <img src="https://img.shields.io/github/tag/sulu/sulu.svg" alt="GitHub tag (latest SemVer)">
+    <a href="https://express-notiz-block.herokuapp.com/" target="_blank">
+        <img src="https://img.shields.io/badge/Deployment-Heroku-purple.svg" alt="Heroku Deployment">
     </a>
     <a href="https://nodejs.org/en/docs/" target="_blank">
         <img src="https://img.shields.io/badge/node.js-v16.15.1-green.svg" alt="Node.JS Version">
     </a>
-    <a href="https://expressjs.com/en/5x/api.html" target="_blank">
-        <img src="https://img.shields.io/badge/express.js-4.18.2-yellow.svg" alt="Express.JS Version">
-    </a>
-    <a href="https://github.com/sulu/sulu/graphs/contributors" target="_blank">
-        <img src="https://img.shields.io/github/contributors-anon/sulu/sulu.svg" alt="GitHub contributors">
-    </a>
-    <a href="https://packagist.org/packages/sulu/sulu" target="_blank">
-        <img src="https://img.shields.io/packagist/dt/sulu/sulu.svg" alt="Packagist downloads">
-    </a>
 </p>
 <br/>
 
-<p align="left">
-
-<div style="position:relative;width:fit-content;height:fit-content;">
-            <a style="position:absolute;top:20px;right:1rem;opacity:0.8;" href="https://clipchamp.com/watch/zv51AufUdjY?utm_source=embed&utm_medium=embed&utm_campaign=watch">
-                <img style="height:22px;" src="https://clipchamp.com/e.svg" alt="Made with Clipchamp" />
-            </a>
-</div>
-
-<a href="https://www.youtube.com/channel/UCQ6WTDZwIum9Gl09bBjznEQ?sub_confirmation=1"><img alt="Youtube" title="Youtube" src="https://img.shields.io/badge/-Subscribe-red?style=for-the-badge&logo=youtube&logoColor=white"/></a>
-
-</p>
-
-  <p align="center">
-  This project consists in a building a team generator, powered by Node.js, using Inquirer.js, the app will start with "node index.js" and ask the user some questions about the team. When the user answers and fills in the seven players, an interactive soccer field will be displayed, with the players in their position.
+<p align="center">
+This Note Taker App project is a simple note-taking application built using Node.js and the Express.js framework. The application allows users to create, view, and delete notes, and all notes are stored in a JSON file.
     <br />
     <br />
-    <a href="https://github.com/RaulMaya/Team-Profile-Generator">Repository</a>    
+    <a href="https://github.com/RaulMaya/Notes-App">Repository</a>    
     ·
-    <a href="https://raulmaya.github.io/Team-Profile-Generator/dist/">Deployment</a>
+    <a href="https://express-notiz-block.herokuapp.com/">Deployment</a>
     ·
     <a href="https://www.linkedin.com/in/raul-maya/">My LinkedIn</a>
 
   </p>
 </div>
 
-<!-- ABOUT THE PROJECT -->
+### Content Table
+* [About](#about)
+* [Usage](#usage)
+* [Walkthrough](#walkthrough)
+* [License](#license)
+* [Contact](#contact)
 
-![mainMenu](readme/generated.jpg)
+### About
 
-### About The Project
+<p>The application is organized into two main parts: the server-side code and the client-side code. The server-side code is responsible for handling HTTP requests and responses, processing user input, and managing the notes stored in the JSON file. The client-side code is responsible for displaying the user interface and sending requests to the server-side code via HTTP.</p>
 
-<br>
-<p>This project was created using tools such as JavaScript, Node.JS, Inquirer.JS, and Jest.JS, this last one for unit testing. Once the application start, the terminal will ask the user some questions about the team, and the user will answer them according to the team he want to fill. Once the user answer all the questions of the terminal, the application will generate an index file with the field as a background with all the players set according to their position.
+<p>The server-side code uses Express.js to create an HTTP server and handle routes for creating, reading and deleting notes. The notes are stored in a JSON file using the fs module provided by Node.js.</p>
+
+<p>The client-side code is built using HTML, CSS, and JavaScript, and uses fetch() to make requests to the server-side code. The user interface is simple and intuitive, with a sidebar that displays all the notes and a main area that displays the content of the selected note.</p>
+
+<p>Overall, the Notes-App project is a great example of a simple yet effective note-taking application built using Node.js and the Express.js framework. It can be used as a starting point for building more complex applications or as a learning resource for those new to web development with Node.js.
 </p>
 
-### Video
+### Usage
 
- <video width="600" height="440" controls>
-  <source src="https://www.youtube.com/watch?v=1oDECQxuNHI" type="video/mp4">
-  <source src="https://www.youtube.com/watch?v=1oDECQxuNHI" type="video/ogg">
-https://www.youtube.com/watch?v=1oDECQxuNHI
-</video>
+<p>The usage of this application is to provide users with a simple and intuitive interface for creating, viewing, editing, and deleting notes. The application allows users to keep track of their thoughts and ideas in an organized manner and to access them from any device with an internet connection.</p>
 
-URL: https://www.youtube.com/watch?v=1oDECQxuNHI
+### Walkthrough
 
-### Setup
-
-Clone this repo to your desktop and run `npm install` to install all the dependencies.
-
-Check to be in the folders terminal, an then on the terminal run `node index.js`.
+<img src="readme/app.gif" alt="Application behavior gif">
 
 ### License
 
 > You can check out the full license [here](https://github.com/IgorAntun/node-chat/blob/master/LICENSE)
 > This project is licensed under the terms of the **MIT** license.
 
-### Contact :iphone:
+### Contact
 
 - Name: Raul Maya Salazar
 - Phone: +52 833 159 7006
