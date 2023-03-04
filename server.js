@@ -1,9 +1,9 @@
 const express = require("express");
 const path = require("path");
 const api = require("./routes/index.js");
-const { clog } = require('./middleware/clog');
+const { clog } = require("./middleware/clog");
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 // Sets up the Express app to handle data parsing
@@ -29,9 +29,7 @@ app.get("/notes", (req, res) =>
 
 // Fallback route for when a user attempts to visit routes that don't exist
 app.get("*", (req, res) =>
-  res.send(
-    `Make a GET request using Insomnia to <a href="http://localhost:${PORT}/api">http://localhost:${PORT}/api</a>`
-  )
+  res.sendFile(path.join(__dirname, "public/pages/404.html"))
 );
 
 //Tell express top start listeting
