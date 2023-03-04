@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const api = require("./routes/index.js");
+const { clog } = require('./middleware/clog');
 
 const PORT = 3001;
 const app = express();
@@ -13,6 +14,8 @@ app.use(express.json());
 // A Middleware is a function/logic that is going to be executed after we get the request but before it finish.
 // This are fixed files, static files.
 app.use(express.static("public"));
+// Import custom middleware, "cLog"
+app.use(clog);
 
 app.use("/api", api);
 
